@@ -13,7 +13,7 @@ func resourceTimeouts() *schema.ResourceTimeout {
 	// resourceDeleteTimeout := 1200
 	defaultTimeout:=time.Duration(300*1000)
 	if v, ok := os.LookupEnv("PM_TIMEOUT"); ok {
-		defaultTimeout, _ = time.Duration((strconv.Atoi(v) *1000)
+		defaultTimeout, _ = time.Duration((strconv.Atoi(v) *1000))
         }
 
 	return &schema.ResourceTimeout{
