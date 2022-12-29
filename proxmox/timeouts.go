@@ -12,15 +12,15 @@ func resourceTimeouts() *schema.ResourceTimeout {
 	// resourceUpdateTimeout := 600
 	// resourceDeleteTimeout := 1200
 
-	// if v, ok := os.LookupEnv("PM_TIMEOUT"); ok {
-	// 	resourceCreateTimeout, _ = strconv.Atoi(v)
-	// }
+	if v, ok := os.LookupEnv("PM_TIMEOUT"); ok {
+	 	resourcepmtimeout, _ = strconv.Atoi(v)
+        }
 
 	return &schema.ResourceTimeout{
-		Create:  schema.DefaultTimeout(20 * time.Minute),
-		Read:    schema.DefaultTimeout(20 * time.Minute),
-		Update:  schema.DefaultTimeout(20 * time.Minute),
-		Delete:  schema.DefaultTimeout(20 * time.Minute),
-		Default: schema.DefaultTimeout(20 * time.Minute),
+		Create:  schema.DefaultTimeout(defaultTimeout * time.Minute),
+		Read:    schema.DefaultTimeout(defaultTimeout * time.Minute),
+		Update:  schema.DefaultTimeout(defaultTimeout * time.Minute),
+		Delete:  schema.DefaultTimeout(defaultTimeout * time.Minute),
+		Default: schema.DefaultTimeout(defaultTimeout * time.Minute),
 	}
 }
