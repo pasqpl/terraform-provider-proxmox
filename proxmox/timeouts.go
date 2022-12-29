@@ -11,9 +11,9 @@ func resourceTimeouts() *schema.ResourceTimeout {
 	// resourceReadTimeout := 600
 	// resourceUpdateTimeout := 600
 	// resourceDeleteTimeout := 1200
-	defaultTimeout:=time.Duration(300)
+	defaultTimeout:=time.Duration(300*1000)
 	if v, ok := os.LookupEnv("PM_TIMEOUT"); ok {
-		defaultTimeout, _ = time.Duration((strconv.Atoi(v))
+		defaultTimeout, _ = time.Duration((strconv.Atoi(v) *1000)
         }
 
 	return &schema.ResourceTimeout{
